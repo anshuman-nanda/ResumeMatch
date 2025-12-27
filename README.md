@@ -366,9 +366,11 @@ pre-commit install
 
 ## 📋 Feature Checklist
 
+> 📝 **Note**: This checklist represents planned features. Items will be checked off as they are implemented.
+
 ### Resume Processing
-- [x] PDF parsing
-- [x] DOCX parsing
+- [ ] PDF parsing
+- [ ] DOCX parsing
 - [ ] TXT parsing
 - [ ] RTF parsing
 - [ ] HTML resume parsing
@@ -376,16 +378,16 @@ pre-commit install
 - [ ] JSON resume support
 
 ### Analysis Features
-- [x] Keyword extraction
-- [x] Skill matching
-- [x] Experience scoring
+- [ ] Keyword extraction
+- [ ] Skill matching
+- [ ] Experience scoring
 - [ ] Education evaluation
 - [ ] Certification verification
 - [ ] Project impact assessment
 - [ ] Achievement quantification
 
 ### AI Capabilities
-- [x] Semantic similarity matching
+- [ ] Semantic similarity matching
 - [ ] Context-aware recommendations
 - [ ] Content generation
 - [ ] Grammar and style checking
