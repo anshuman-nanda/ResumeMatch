@@ -46,23 +46,18 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 ```bash
 # Clone your fork
 # Note: Replace YOUR_USERNAME with your GitHub username
-# Use the current repository name until the rename is complete:
-git clone https://github.com/YOUR_USERNAME/resume-intelligence.git
-cd resume-intelligence
-
-# After the rename, use:
-# git clone https://github.com/YOUR_USERNAME/ResumeMatch.git
-# cd ResumeMatch
+git clone https://github.com/YOUR_USERNAME/ResumeMatch.git
+cd ResumeMatch
 
 # Create a virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
+# Install in editable mode with development dependencies
+pip install -e ".[dev]"
 
-# Install development dependencies
-pip install -r requirements-dev.txt  # If available
+# Verify installation
+python -c "import resumematch; print(resumematch.__version__)"
 ```
 
 ## Coding Standards
@@ -76,11 +71,30 @@ pip install -r requirements-dev.txt  # If available
 ## Testing
 
 ```bash
-# Run tests
+# Run all tests
 pytest
 
 # Run tests with coverage
-pytest --cov=resumematch
+pytest --cov=resumematch tests/
+
+# Run specific test files
+pytest tests/unit/test_analyzer.py
+pytest tests/unit/test_parser.py
+```
+
+## Code Style
+
+ResumeMatch follows PEP 8 conventions:
+
+```bash
+# Format code with black (when installed)
+black src/ tests/ examples/
+
+# Run linter (when installed)
+flake8 src/ tests/ examples/
+
+# Type checking (when installed)
+mypy src/
 ```
 
 ## Documentation

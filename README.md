@@ -118,118 +118,115 @@ ResumeMatch aims to build upon the foundation laid by Resume-Matcher with these 
 
 ## 🚀 Quick Start
 
-> ⚠️ **Development Status**: The project is currently in early development. Installation and usage instructions below are for the planned implementation.
+> ⚠️ **Development Status**: The project is currently in early development. The package structure is in place, and features are being actively implemented.
 
 ### Prerequisites
 
 - Python 3.8 or higher
-- 4GB RAM minimum (8GB recommended)
-- 2GB free disk space
+- pip (Python package installer)
+- 4GB RAM minimum (8GB recommended for future AI features)
 
 ### ⚡ Installation
 
-#### Option 1: Quick Install (Recommended)
+ResumeMatch is now structured as a proper Python package. Install it from source:
+
+#### Standard Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/anshuman-nanda/resume-intelligence.git
-cd resume-intelligence
+git clone https://github.com/anshuman-nanda/ResumeMatch.git
+cd ResumeMatch
 
-# Run the setup script (coming soon)
-# ./setup.sh  # Linux/Mac
-# or
-# setup.bat   # Windows
+# Install the package
+pip install .
 
-# For now, follow the manual installation steps below
+# Verify installation
+python -c "import resumematch; print(resumematch.__version__)"
 ```
 
-#### Option 2: Manual Install
+#### Development Installation (Recommended for Contributors)
 
 ```bash
 # Clone the repository
-git clone https://github.com/anshuman-nanda/resume-intelligence.git
-cd resume-intelligence
+git clone https://github.com/anshuman-nanda/ResumeMatch.git
+cd ResumeMatch
 
-# Create virtual environment
+# Create virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # or
 venv\Scripts\activate     # Windows
 
-# Install dependencies
-pip install -r requirements.txt
+# Install in editable mode with development dependencies
+pip install -e ".[dev]"
 
-# Download AI models (coming soon - models will be included in future releases)
-# python scripts/download_models.py
-
-# Start the application (coming soon)
-# python app.py
+# Run tests to verify installation
+pytest tests/
 ```
 
-#### Option 3: Docker
-
-```bash
-# Docker support coming soon
-# docker pull anshumannanda/resume-intelligence:latest
-# docker run -p 5000:5000 -v ./data:/app/data anshumannanda/resume-intelligence
-```
+For detailed installation instructions, see [INSTALL.md](INSTALL.md).
 
 ---
 
 ## 📖 Usage
 
-> 📝 **Note**: Usage examples below represent the planned interface for the project.
+ResumeMatch can be used as a Python library in your own projects or through example scripts.
 
-### Basic Workflow (Planned)
+### Quick Example
 
-1. **Upload Your Resume**
-   ```bash
-   python app.py --resume path/to/your/resume.pdf
-   ```
+```python
+from resumematch import ResumeAnalyzer, ResumeParser, ResumeMatcher
 
-2. **Add Job Description**
-   ```bash
-   python app.py --resume resume.pdf --job-description path/to/job.txt
-   ```
+# Initialize components
+parser = ResumeParser()
+matcher = ResumeMatcher()
+analyzer = ResumeAnalyzer()
 
-3. **Get Analysis**
-   - View detailed match score
-   - Review recommendations
-   - See missing keywords
-   - Check ATS compatibility
+# Parse a resume
+resume_data = parser.parse("path/to/resume.pdf")
 
-4. **Export Results**
-   ```bash
-   python app.py --resume resume.pdf --job-description job.txt --export results.json
-   ```
+# Match against job description
+job_description = "Looking for a Python developer with experience in..."
+match_results = matcher.match(resume_data, job_description)
 
-### Web Interface
+# Get comprehensive analysis
+analysis = analyzer.analyze("path/to/resume.pdf", job_description)
 
-```bash
-# Start the web server
-python app.py --web
-
-# Open browser to http://localhost:5000
+print(f"Match Score: {analysis['overall_score']}")
+print(f"ATS Score: {analysis['ats_score']}")
+print(f"Keywords: {analysis['keywords']}")
 ```
 
-### CLI Examples
+### Running Examples
 
 ```bash
-# Analyze multiple resumes
-python app.py --batch resumes/*.pdf --job-description job.txt
+# Basic usage example
+python examples/basic_usage.py
 
-# Generate optimization report
-python app.py --resume resume.pdf --job-description job.txt --report --output report.pdf
-
-# Compare resume versions
-python app.py --compare resume_v1.pdf resume_v2.pdf
-
-# Export to JSON
-python app.py --resume resume.pdf --job-description job.txt --format json
-
-# Enable verbose output
-python app.py --resume resume.pdf --verbose
+# Library integration example
+python examples/library_usage.py
 ```
+
+### Supported File Formats
+
+- PDF (.pdf)
+- Microsoft Word (.docx)
+- Plain Text (.txt)
+- Rich Text Format (.rtf)
+
+### Package Structure
+
+For more details on the package structure and how to extend it, see [PACKAGE_STRUCTURE.md](PACKAGE_STRUCTURE.md).
+
+### Advanced Usage (Planned)
+
+The following features are planned for future releases:
+
+- CLI tool for command-line analysis
+- Web interface for interactive resume analysis
+- Batch processing for multiple resumes
+- PDF report generation
+- Resume version comparison
 
 ---
 
@@ -251,19 +248,23 @@ python app.py --resume resume.pdf --verbose
 
 ## 🗺️ Roadmap
 
-### ✅ Project Setup
+### ✅ Project Setup (Completed)
 - [x] Repository created
 - [x] Initial documentation
 - [x] Project vision defined
-- [ ] Core dependencies identified
-- [ ] Development environment setup
+- [x] Python package structure implemented
+- [x] Core module architecture defined
+- [x] Test infrastructure setup (20 tests, 92% coverage)
+- [x] Development environment configured
+- [x] PEP 8 naming conventions enforced
 
 ### 🚧 In Progress
-- [ ] Core resume parsing engine
+- [ ] Core resume parsing engine (PDF, DOCX, TXT)
 - [ ] Basic job description matching
-- [ ] Keyword extraction
+- [ ] Keyword extraction algorithms
 - [ ] ATS compatibility scoring
-- [ ] PDF/DOCX support
+- [ ] Semantic analysis implementation
+- [ ] Command-line interface (CLI)
 - [ ] Web interface development
 - [ ] Real-time market data integration
 - [ ] Multi-language support
@@ -272,7 +273,7 @@ python app.py --resume resume.pdf --verbose
 ### 🔮 Future Plans
 
 **Q1 2025**
-- [ ] Mobile app (iOS/Android)
+- [ ] Publish to PyPI for pip installation
 - [ ] Browser extension
 - [ ] LinkedIn profile analyzer
 - [ ] Cover letter generator
@@ -334,33 +335,44 @@ We love contributions! ResumeMatch is built by the community, for the community.
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/resume-intelligence.git
-cd resume-intelligence
+git clone https://github.com/YOUR_USERNAME/ResumeMatch.git
+cd ResumeMatch
 
 # Add upstream remote
-git remote add upstream https://github.com/anshuman-nanda/resume-intelligence.git
+git remote add upstream https://github.com/anshuman-nanda/ResumeMatch.git
 
-# Install development dependencies
-pip install -r requirements-dev.txt
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate     # Windows
+
+# Install in editable mode with development dependencies
+pip install -e ".[dev]"
 
 # Run tests
-pytest
+pytest tests/
 
-# Run linter
-black . && flake8 . && mypy .
+# Run tests with coverage
+pytest --cov=resumematch tests/
 
-# Run pre-commit hooks
-pre-commit install
+# Run linters (when configured)
+black src/ tests/ examples/
+flake8 src/ tests/ examples/
+mypy src/
 ```
 
 ### Code Standards
 
 - Follow PEP 8 style guide
+- Use `snake_case` for functions and variables
+- Use `PascalCase` for class names
 - Write descriptive commit messages
 - Add docstrings to functions and classes
 - Include type hints where applicable
 - Write unit tests for new features
 - Keep functions small and focused
+- Maintain test coverage above 80%
 
 ---
 

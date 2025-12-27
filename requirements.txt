@@ -1,0 +1,11 @@
+# ResumeMatch - Core Dependencies
+# ================================
+# This file contains the core dependencies required to run ResumeMatch.
+# As features are implemented, specific dependencies will be added here.
+
+# Future dependencies may include:
+# - PyPDF2 or pdfplumber for PDF parsing
+# - python-docx for DOCX parsing
+# - spacy or transformers for NLP
+# - nltk for text processing
+# - scikit-learn for ML models

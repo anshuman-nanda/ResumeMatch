@@ -1,0 +1,23 @@
+# MANIFEST.in
+# Include important documentation and configuration files
+
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include REPOSITORY_RENAME.md
+include pyproject.toml
+include setup.py
+include requirements.txt
+include requirements-dev.txt
+
+# Include all example files
+recursive-include examples *.py
+
+# Include tests
+recursive-include tests *.py
+
+# Exclude compiled files and caches
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *$py.class
+global-exclude *.so
