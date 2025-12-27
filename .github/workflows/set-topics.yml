@@ -1,0 +1,35 @@
+name: Set Repository Topics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  metadata: write
+
+jobs:
+  set-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set repository topics
+        run: |
+          curl -X PUT \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/topics \
+            -d '{
+              "names": [
+                "resume",
+                "ai",
+                "nlp",
+                "job-search",
+                "ats",
+                "career",
+                "recruitment",
+                "fastapi"
+              ]
+            }'
