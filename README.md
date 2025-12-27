@@ -127,13 +127,12 @@ While we respect the Resume-Matcher project, Resume Intelligence takes resume op
 git clone https://github.com/anshuman-nanda/resume-intelligence.git
 cd resume-intelligence
 
-# Run the setup script
-./setup.sh  # Linux/Mac
+# Run the setup script (coming soon)
+# ./setup.sh  # Linux/Mac
 # or
-setup.bat   # Windows
+# setup.bat   # Windows
 
-# Start the application
-python app.py
+# For now, follow the manual installation steps below
 ```
 
 #### Option 2: Manual Install
@@ -152,18 +151,19 @@ venv\Scripts\activate     # Windows
 # Install dependencies
 pip install -r requirements.txt
 
-# Download AI models
-python scripts/download_models.py
+# Download AI models (coming soon - models will be included in future releases)
+# python scripts/download_models.py
 
-# Start the application
-python app.py
+# Start the application (coming soon)
+# python app.py
 ```
 
 #### Option 3: Docker
 
 ```bash
-docker pull anshumannanda/resume-intelligence:latest
-docker run -p 5000:5000 -v ./data:/app/data anshumannanda/resume-intelligence
+# Docker support coming soon
+# docker pull anshumannanda/resume-intelligence:latest
+# docker run -p 5000:5000 -v ./data:/app/data anshumannanda/resume-intelligence
 ```
 
 ---
@@ -402,14 +402,14 @@ pre-commit install
 
 For detailed documentation, visit our [Wiki](https://github.com/anshuman-nanda/resume-intelligence/wiki) (coming soon).
 
-### Key Resources
+### Key Resources (In Development)
 
-- [Installation Guide](docs/installation.md)
-- [User Manual](docs/user-guide.md)
-- [API Reference](docs/api-reference.md)
-- [Contributing Guide](CONTRIBUTING.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [FAQ](docs/faq.md)
+- Installation Guide (coming soon)
+- User Manual (coming soon)
+- API Reference (coming soon)
+- Contributing Guide (coming soon)
+- Code of Conduct (coming soon)
+- FAQ (coming soon)
 
 ---
 
