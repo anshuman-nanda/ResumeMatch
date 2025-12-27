@@ -22,3 +22,6 @@ jobs:
             --method PUT \
             repos/${{ github.repository }}/topics \
             -f names='["resume","ai","nlp","job-search","ats","career","recruitment","fastapi"]'
+
+          echo "Topics set successfully. Verifying..."
+          gh api repos/${{ github.repository }}/topics
