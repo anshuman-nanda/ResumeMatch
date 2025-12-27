@@ -1,6 +1,7 @@
 """Resume analysis core functionality."""
 
 from typing import Dict, Any, Optional
+from resumematch import __version__
 
 
 class ResumeAnalyzer:
@@ -58,5 +59,4 @@ class ResumeAnalyzer:
         Returns:
             Version string.
         """
-        from resumematch import __version__
         return __version__

@@ -17,7 +17,7 @@ def clean_text(text: str) -> str:
     text = normalize_whitespace(text)
     
     # Remove special characters but keep punctuation
-    text = re.sub(r'[^\w\s\.\,\-\(\)\:\;]', '', text)
+    text = re.sub(r'[^\w\s\.\,\(\)\:\;\-]', '', text)
     
     return text.strip()
 

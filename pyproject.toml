@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Anshuman Nanda", email = "anshuman.nanda@example.com"}
+    {name = "Anshuman Nanda"}
 ]
 keywords = ["resume", "job-matching", "nlp", "ai", "ats", "career"]
 classifiers = [

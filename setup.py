@@ -11,7 +11,6 @@ setup(
     name="resumematch",
     version="0.1.0",
     author="Anshuman Nanda",
-    author_email="anshuman.nanda@example.com",
     description="AI-Powered Resume Analysis & Job Matching Platform",
     long_description=long_description,
     long_description_content_type="text/markdown",
